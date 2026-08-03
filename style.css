@@ -1,0 +1,371 @@
+/* ============================================
+   DX Seminar LP — Design Tokens
+   コンセプト: 当日のタイムスケジュールをそのまま
+   ページ構造の軸にした、信頼感重視の受付LP
+   ============================================ */
+:root {
+  --color-navy: #1F2A44;
+  --color-navy-raised: #29365A;
+  --color-white: #FFFFFF;
+  --color-mist: #F3F5F8;
+  --color-cyan: #2BB6A3;
+  --color-cyan-deep: #1E8C7D;
+  --color-amber: #E8A83C;
+  --color-text-muted: #5C6478;
+  --color-text-on-navy: #E9ECF3;
+  --color-text-muted-navy: #99A2BB;
+  --color-line: #E1E5EC;
+
+  --font-display: "Zen Kaku Gothic New", "Inter", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --content-width: 1080px;
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+a { color: inherit; }
+
+.container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  background: var(--color-navy);
+  color: var(--color-text-on-navy);
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.topbar strong { color: var(--color-amber); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.1rem;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.nav-cta {
+  display: inline-flex;
+  padding: 0.6em 1.4em;
+  background: var(--color-cyan);
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-navy-raised) 100%);
+  color: var(--color-text-on-navy);
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: 1.2rem;
+}
+
+.hero-title {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.hero-sub {
+  margin: 1.4rem auto 0;
+  max-width: 52ch;
+  color: var(--color-text-muted-navy);
+}
+
+.hero-meta {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.hero-meta strong {
+  color: var(--color-amber);
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+
+.hero-cta {
+  margin-top: 2.4rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  padding: 1em 2.4em;
+  background: var(--color-cyan);
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 3px;
+  box-shadow: 0 12px 30px -12px rgba(43,182,163,0.5);
+  transition: transform 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+.hero-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted-navy);
+}
+
+/* ---------- Section shared ---------- */
+.section {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-cyan-deep);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.section-lead {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+/* ---------- Problem cards ---------- */
+.problem-grid {
+  margin-top: 2.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.problem-card {
+  background: var(--color-mist);
+  border-radius: 4px;
+  padding: 1.8rem;
+}
+
+.problem-icon {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-cyan-deep);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.8rem;
+}
+
+.problem-text {
+  font-weight: 500;
+}
+
+/* ---------- Schedule timeline (signature) ---------- */
+.schedule {
+  background: var(--color-mist);
+}
+
+.timeline {
+  margin-top: 2.6rem;
+  position: relative;
+  padding-left: 2px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 92px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--color-line);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 1.5rem;
+  padding-block: 1.4rem;
+}
+
+.timeline-time {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-navy);
+  text-align: right;
+  padding-top: 0.15rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 88px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  border: 2px solid var(--color-white);
+}
+
+.timeline-content {
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  padding: 1.2rem 1.4rem;
+}
+
+.timeline-title {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Speakers ---------- */
+.speaker-grid {
+  margin-top: 2.6rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.speaker-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.speaker-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.speaker-photo-1 { background: linear-gradient(150deg, #1F2A44, #2BB6A3); }
+.speaker-photo-2 { background: linear-gradient(150deg, #1F2A44, #E8A83C); }
+
+.speaker-name {
+  font-weight: 700;
+}
+
+.speaker-role {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.speaker-bio {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Final CTA ---------- */
+.final-cta {
+  background: var(--color-navy);
+  color: var(--color-text-on-navy);
+  text-align: center;
+}
+
+.final-cta .section-title {
+  color: var(--color-text-on-navy);
+}
+
+.final-cta .section-lead {
+  color: var(--color-text-muted-navy);
+  margin-inline: auto;
+}
+
+.final-cta .btn-primary {
+  margin-top: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding-block: 2rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-line);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .speaker-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 60px; }
+  .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+  .timeline-dot { left: 56px; }
+}
