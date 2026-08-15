@@ -129,7 +129,7 @@ a { color: inherit; }
 
 .hero-sub {
   margin: 1.4rem auto 0;
-  max-width: 56ch;
+  max-width: 100%;
   color: var(--color-text-muted-navy);
 }
 
